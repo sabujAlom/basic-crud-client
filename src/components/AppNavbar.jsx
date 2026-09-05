@@ -55,7 +55,9 @@ export function AppNavbar() {
             </svg>
           </button>
           <div>
-            <h3 className="font-semibold">PH E-Commerce</h3>
+             <Link href="/">
+                <h3 className="font-semibold">PH E-Commerce</h3>
+             </Link>
           </div>
         </div>
         <ul className="hidden items-center gap-4 md:flex">
