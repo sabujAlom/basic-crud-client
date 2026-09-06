@@ -3,7 +3,7 @@ import {Button, Card, Link} from "@heroui/react";
 import Image from "next/image";
 
 export function ProductCard({product}) {
-  const {title, description, price, image}=product;
+  const {_id, title, description, price, image}=product;
   return (
     <Card className="w-[400px]">
        <Image src={image} alt={title} width={400} height={400}/>
@@ -18,9 +18,9 @@ export function ProductCard({product}) {
            <p>$ {price}</p>
         </div>
       <Card.Footer>
-         <Button>
+         <Link href={`/products/${_id}`}><Button>
             View Details
-         </Button>
+         </Button></Link>
       </Card.Footer>
       
     </Card>
