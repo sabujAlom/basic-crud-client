@@ -1,3 +1,4 @@
+import { addProduct } from "@/lib/product/action";
 import {
   Button,
   Description,
@@ -9,9 +10,14 @@ import {
 } from "@heroui/react";
 
 const AddProductForm = () => {
+    const handleSubmit = async(formData)=>{
+        "use server";
+      const data = await addProduct(formData)
+
+    }
   return (
     <div className="flex w-full items-center justify-center">
-      <Form className="flex w-96 flex-col gap-4 border p-5 rounded-md">
+      <Form action={handleSubmit} className="flex w-96 flex-col gap-4 border p-5 rounded-md">
         <TextField isRequired name="title" type="text">
           <Label>Product Name</Label>
           <Input placeholder="Enter Product Name" />
