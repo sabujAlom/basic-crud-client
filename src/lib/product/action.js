@@ -16,10 +16,11 @@ export const addProduct = async(formdata)=>{
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(modifiedData)
     });
-    const data = await res.json();
     if(!res.ok){
-        return;
+        throw new Error("Failed to add product");
     }
+    
+    const data = await res.json();
     revalidatePath("/products");
     return data;
 

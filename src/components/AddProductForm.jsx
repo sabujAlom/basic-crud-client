@@ -1,3 +1,4 @@
+"use client";
 import { addProduct } from "@/lib/product/action";
 import {
   Button,
@@ -8,11 +9,15 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import { useRouter } from "next/router";
 
 const AddProductForm = () => {
+  const router = useRouter()
     const handleSubmit = async(formData)=>{
-        "use server";
       const data = await addProduct(formData)
+      if(data.push){
+        router.push("/products");
+      }
 
     }
   return (
