@@ -1,7 +1,7 @@
+'use server';
 import { revalidatePath } from "next/cache";
 
 export const addProduct = async(formdata)=>{
-    'use server';
     const newProduct = Object.fromEntries(formdata.entries())
     // console.log(newProduct)
     const modifiedData ={

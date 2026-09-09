@@ -9,13 +9,15 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+
 
 const AddProductForm = () => {
   const router = useRouter()
+  
     const handleSubmit = async(formData)=>{
       const data = await addProduct(formData)
-      if(data.push){
+      if(data.insertedId){
         router.push("/products");
       }
 
