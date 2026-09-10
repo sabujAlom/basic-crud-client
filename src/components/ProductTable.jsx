@@ -1,4 +1,5 @@
 import { Button, Table } from "@heroui/react";
+import { DeleteModal } from "./DeleteModal";
 
 
 export function ProductTable({products}) {
@@ -23,9 +24,7 @@ export function ProductTable({products}) {
                  <Button className="mr-2">
                      Edit
                  </Button>
-                 <Button variant="danger">
-                     Delete
-                 </Button>
+                  <DeleteModal/>
               </Table.Cell>
             </Table.Row>)
              }

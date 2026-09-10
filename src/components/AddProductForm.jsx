@@ -11,20 +11,21 @@ import {
 } from "@heroui/react";
 import { useRouter } from "next/navigation";
 
-
 const AddProductForm = () => {
-  const router = useRouter()
-  
-    const handleSubmit = async(formData)=>{
-      const data = await addProduct(formData)
-      if(data.insertedId){
-        router.push("/products");
-      }
+  const router = useRouter();
 
+  const handleSubmit = async (formData) => {
+    const data = await addProduct(formData);
+    if (data.insertedId) {
+      router.push("/products");
     }
+  };
   return (
     <div className="flex w-full items-center justify-center">
-      <Form action={handleSubmit} className="flex w-96 flex-col gap-4 border p-5 rounded-md">
+      <Form
+        action={handleSubmit}
+        className="flex w-96 flex-col gap-4 border p-5 rounded-md"
+      >
         <TextField isRequired name="title" type="text">
           <Label>Product Name</Label>
           <Input placeholder="Enter Product Name" />
