@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 
-
+// post.........................................
 export const addProduct = async(formdata)=>{
     console.log(formdata)
     const newProduct = Object.fromEntries(formdata.entries())
@@ -27,4 +27,17 @@ export const addProduct = async(formdata)=>{
     revalidatePath("/products");
     return data;
 
+}
+
+
+
+// delete ...............................
+export const deleteProduct =async(id)=>{
+    const res= await fetch(`http://localhost:8000/products/${id}`,{
+        method: "DELETE",
+    });
+    if(!res.ok) return;
+    const data = await res.json()
+    revalidatePath("/products")
+    return data;
 }

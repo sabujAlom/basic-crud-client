@@ -24,7 +24,9 @@ export function ProductTable({products}) {
                  <Button className="mr-2">
                      Edit
                  </Button>
-                  <DeleteModal/>
+                  <DeleteModal 
+                  productId={product._id}
+                  />
               </Table.Cell>
             </Table.Row>)
              }

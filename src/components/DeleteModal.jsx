@@ -1,8 +1,15 @@
 "use client";
 
+import { deleteProduct } from "@/lib/product/action";
 import {AlertDialog, Button} from "@heroui/react";
 
-export function DeleteModal() {
+export function DeleteModal({productId}) {
+
+   const handleDelete = async()=>{
+      await deleteProduct(productId);
+    
+   }
+
   return (
     <AlertDialog>
       <Button variant="danger">Delete Project</Button>
@@ -12,20 +19,19 @@ export function DeleteModal() {
             <AlertDialog.CloseTrigger />
             <AlertDialog.Header>
               <AlertDialog.Icon status="danger" />
-              <AlertDialog.Heading>Delete project permanently?</AlertDialog.Heading>
+              <AlertDialog.Heading>Delete product permanently?</AlertDialog.Heading>
             </AlertDialog.Header>
             <AlertDialog.Body>
               <p>
-                This will permanently delete <strong>My Awesome Project</strong> and all of its
-                data. This action cannot be undone.
+                Are you sure to delete this projects?
               </p>
             </AlertDialog.Body>
             <AlertDialog.Footer>
               <Button slot="close" variant="tertiary">
                 Cancel
               </Button>
-              <Button slot="close" variant="danger">
-                Delete Project
+              <Button onClick={handleDelete} slot="close" variant="danger">
+                Delete Product
               </Button>
             </AlertDialog.Footer>
           </AlertDialog.Dialog>
