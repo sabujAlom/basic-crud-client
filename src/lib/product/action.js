@@ -41,3 +41,10 @@ export const deleteProduct =async(id)=>{
     revalidatePath("/products")
     return data;
 }
+
+export const updateProduct = async(id, formData)=>{
+    console.log(id)
+    const updateProduct = Object.fromEntries(formData.entries())
+    console.log(updateProduct)
+
+}
