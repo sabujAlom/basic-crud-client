@@ -17,6 +17,10 @@ const EditProductForm = ({product}) => {
   const handleSubmit = async (formData) => {
 
     const data = await updateProduct(_id, formData)
+
+    if(data.modifiedCount>0){
+      router.push("/products")
+    }
     
   };
   return (

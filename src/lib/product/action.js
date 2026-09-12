@@ -42,6 +42,9 @@ export const deleteProduct =async(id)=>{
     return data;
 }
 
+
+// update.................................................
+
 export const updateProduct = async(id, formData)=>{
     // console.log(id)
     const updateProduct = Object.fromEntries(formData.entries());

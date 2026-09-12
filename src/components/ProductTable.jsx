@@ -10,7 +10,7 @@ export function ProductTable({products}) {
       <Table.ScrollContainer>
         <Table.Content aria-label="Team members" className="min-w-[600px]">
           <Table.Header>
-            <Table.Column isRowHeader>Product Name</Table.Column>
+            <Table.Column isRowHeader>Products Name</Table.Column>
             <Table.Column>Price</Table.Column>
             <Table.Column>Stock</Table.Column>
             <Table.Column>Action</Table.Column>
