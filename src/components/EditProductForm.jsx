@@ -11,17 +11,15 @@ import {
 } from "@heroui/react";
 import { useRouter } from "next/navigation";
 
-const EditProductForm = ({product}) => {
+const EditProductForm = ({ product }) => {
   const router = useRouter();
- const {_id, title, description, price, image, stock}=product;
+  const { _id, title, description, price, image, stock } = product;
   const handleSubmit = async (formData) => {
+    const data = await updateProduct(_id, formData);
 
-    const data = await updateProduct(_id, formData)
-
-    if(data.modifiedCount>0){
-      router.push("/products")
+    if (data.modifiedCount > 0) {
+      router.push("/products");
     }
-    
   };
   return (
     <div className="flex w-full items-center justify-center">
@@ -29,32 +27,28 @@ const EditProductForm = ({product}) => {
         action={handleSubmit}
         className="flex w-96 flex-col gap-4 border p-5 rounded-md"
       >
-        <TextField
-        defaultValue={title} isRequired name="title" type="text">
+        <TextField defaultValue={title} isRequired name="title" type="text">
           <Label>Product Name</Label>
           <Input placeholder="Enter Product Name" />
         </TextField>
         <TextField
-         defaultValue={description}
-        isRequired name="description" type="text">
+          defaultValue={description}
+          isRequired
+          name="description"
+          type="text"
+        >
           <Label>Product Description</Label>
           <Input placeholder="Enter Product Description" />
         </TextField>
-        <TextField
-         defaultValue={price}
-        isRequired name="price" type="number">
+        <TextField defaultValue={price} isRequired name="price" type="number">
           <Label>Product Price</Label>
           <Input placeholder="Enter Product Price" />
         </TextField>
-        <TextField
-         defaultValue={image}
-        isRequired name="image" type="url">
+        <TextField defaultValue={image} isRequired name="image" type="url">
           <Label>Product Image</Label>
           <Input placeholder="Enter Product Image" />
         </TextField>
-        <TextField
-         defaultValue={stock}
-        isRequired name="stock" type="number">
+        <TextField defaultValue={stock} isRequired name="stock" type="number">
           <Label>Product Stock</Label>
           <Input placeholder="Enter Product Stock" />
         </TextField>

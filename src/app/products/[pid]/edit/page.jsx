@@ -16,4 +16,5 @@ const EditProductPage = async({params}) => {
     );
 };
 
+
 export default EditProductPage;
