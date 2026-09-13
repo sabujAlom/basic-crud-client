@@ -12,7 +12,7 @@ export function ProductTable({products}) {
           <Table.Header>
             <Table.Column isRowHeader>Products Name</Table.Column>
             <Table.Column>Price</Table.Column>
-            <Table.Column>Stock</Table.Column>
+            <Table.Column>Stocks</Table.Column>
             <Table.Column>Action</Table.Column>
           </Table.Header>
           <Table.Body>
